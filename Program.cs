@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using RostrosFelices._Repositories;
 using RostrosFelices.Data;
 
 namespace RostrosFelices
@@ -16,7 +17,15 @@ namespace RostrosFelices
                 options.UseSqlServer(builder.Configuration.GetConnectionString("RostrosFelicesDB"))
             );
 
-            var app = builder.Build();
+			builder.Services.AddAuthentication().AddCookie("CookieAuth", options =>
+			{
+				options.Cookie.Name = "CookieAuth";
+				options.LoginPath = "/Account/Login";
+			});
+
+			builder.Services.AddScoped<UserRepository>();
+
+			var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
