@@ -6,33 +6,35 @@ using RostrosFelices.Models;
 
 namespace RostrosFelices.Pages.Employees
 {
-    public class CreateModel : PageModel
+   public class CreateModel : PageModel
     {
-		private readonly RostrosFelicesContext _context;
-		public CreateModel(RostrosFelicesContext context)
-		{
-			_context = context;
-		}
-		public IActionResult OnGet()
-		{
-			return Page();
-		}
-		[BindProperty]
+        private readonly RostrosFelicesContext _context;
 
-		public Employee Employee { get; set; } = default!;
+        public CreateModel(RostrosFelicesContext context)
+        {
+            _context = context;
+        }
 
-		public async Task<IActionResult> OnPostAsync()
-		{
-			if (!ModelState.IsValid || _context.Employees == null || Employee == null)
-			{
-				return Page();
-			}
-			_context.Employees.Add(Employee);
-			await _context.SaveChangesAsync();
+        public IActionResult OnGet()
+        {
+            return Page();
+        }
 
-			return RedirectToPage("./Index");
+        [BindProperty]
+        public Employee Employee { get; set; } = default!;
 
 
-		}
-	}
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (!ModelState.IsValid || _context.Employees == null || Employee == null)
+            {
+                return Page();
+            }
+
+            _context.Employees.Add(Employee);
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./index");
+        }
+    }
 }
