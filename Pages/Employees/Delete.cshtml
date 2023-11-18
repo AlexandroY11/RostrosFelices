@@ -1,0 +1,51 @@
+﻿@page
+@model RostrosFelices.Pages.Employees.DeleteModel
+@{
+	ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want delete this?</h3>
+<div>
+	<h4>Employee</h4>
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Employee.Name)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(Model => Model.Employee.Name)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Employee.Age)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Employee.Age)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Employee.Phone)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Employee.Phone)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Employee.Address)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Employee.Address)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Employee.Email)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Employee.Email)
+		</dd>
+	</dl>
+
+	<form method="post">
+		<input type="hidden" asp-for="Employee.Id" />
+		<input type="submit" value="Delete" class="btn btn-danger" />
+		<a asp-page="./Index" class="btn btn-primary">Back to List</a>
+	</form>
+</div>
