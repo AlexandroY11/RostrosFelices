@@ -13,6 +13,7 @@ namespace RostrosFelices.Data
 
         public DbSet <Employee> Employees { get; set; }
         public DbSet <Service> Services { get; set; }
+        public DbSet <User> Users { get; set; }
 
     }
 }
