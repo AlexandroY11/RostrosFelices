@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using RostrosFelices.Data;
+
 namespace RostrosFelices
 {
     public class Program
@@ -8,6 +11,10 @@ namespace RostrosFelices
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+
+            builder.Services.AddDbContext<RostrosFelicesContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("RostrosFelicesDB"))
+            );
 
             var app = builder.Build();
 
