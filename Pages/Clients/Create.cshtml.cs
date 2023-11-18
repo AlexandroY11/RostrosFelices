@@ -22,7 +22,6 @@ namespace RostrosFelices.Pages.Clients
         [BindProperty]
         public Client Client { get; set; } = default!;
 
-        //public IList<Client> Clients { get; set; } = default!;
 
         public async Task<IActionResult> OnPostAsync()
         {
