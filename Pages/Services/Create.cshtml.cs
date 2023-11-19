@@ -98,27 +98,27 @@ namespace RostrosFelices.Pages.Services
     finalService.Name = Service.Name;
     finalService.Fecha = Service.Fecha;
 
-    if (!string.IsNullOrEmpty(Service.EmployeeName))
-    {
-        int employeeIdIndex = Service.EmployeeName.IndexOf('-');
-        if (employeeIdIndex != -1 && Service.EmployeeName.Length > employeeIdIndex + 2)
-        {
-            finalService.EmployeeId = Convert.ToInt32(Service.EmployeeName.Substring(0, employeeIdIndex));
-            finalService.EmployeeName = Service.EmployeeName.Substring(employeeIdIndex + 2);
-        }
-    }
+			if (!string.IsNullOrEmpty(Service.EmployeeName))
+			{
+				int employeeIdIndex = Service.EmployeeName.IndexOf('-');
+				if (employeeIdIndex != -1 && Service.EmployeeName.Length > employeeIdIndex + 2)
+				{
+					finalService.EmployeeId = Convert.ToInt32(Service.EmployeeName.Substring(0, employeeIdIndex));
+					finalService.EmployeeName = Service.EmployeeName.Substring(employeeIdIndex + 1); // Ajuste del índice
+				}
+			}
 
-    if (!string.IsNullOrEmpty(Service.ClientName))
-    {
-        int clientIdIndex = Service.ClientName.IndexOf('-');
-        if (clientIdIndex != -1 && Service.ClientName.Length > clientIdIndex + 2)
-        {
-            finalService.ClientId = Convert.ToInt32(Service.ClientName.Substring(0, clientIdIndex));
-            finalService.ClientName = Service.ClientName.Substring(clientIdIndex + 2);
-        }
-    }
+			if (!string.IsNullOrEmpty(Service.ClientName))
+			{
+				int clientIdIndex = Service.ClientName.IndexOf('-');
+				if (clientIdIndex != -1 && Service.ClientName.Length > clientIdIndex + 2)
+				{
+					finalService.ClientId = Convert.ToInt32(Service.ClientName.Substring(0, clientIdIndex));
+					finalService.ClientName = Service.ClientName.Substring(clientIdIndex + 1); // Ajuste del índice
+				}
+			}
 
-    finalService.Observation = Service.Observation;
+			finalService.Observation = Service.Observation;
 
     _context.Services.Add(finalService);
     await _context.SaveChangesAsync();
