@@ -23,25 +23,40 @@
 				<span asp-validation-for="Service.Fecha" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="Service.EmployeeId" class="control-label"></label>
-				<input asp-for="Service.EmployeeId" class="form-control" />
-				<span asp-validation-for="Service.EmployeeId" class="text-danger"></span>
+				<label asp-for="Service.EmployeeName" class="control-label"></label>
+
+				<select asp-for="Service.EmployeeName" class="form-select">
+					@foreach((var employee, int count) in Model.Employees.Select((v, i) => (v, i)))
+					{
+						<option value="@Model.Employees[count]">@Model.Employees[count]</option>
+					}
+				</select>
+
 			</div>
-			<div class="form-group">
+			@* <div class="form-group">
 				<label asp-for="Service.EmployeeName" class="control-label"></label>
 				<input asp-for="Service.EmployeeName" class="form-control" />
 				<span asp-validation-for="Service.EmployeeName" class="text-danger"></span>
-			</div> @* Combo box para elegir empleado *@
+			</div> *@ @* Combo box para elegir empleado *@
 			<div class="form-group">
-				<label asp-for="Service.ClientId" class="control-label"></label>
-				<input asp-for="Service.ClientId" class="form-control" />
-				<span asp-validation-for="Service.ClientId" class="text-danger"></span>
+				<label asp-for="Service.ClientName" class="control-label"></label>
+				@* <input asp-for="Service.ClientId" class="form-control" /> *@
+		
+				@* ComboBox *****************************************@
+				<select asp-for="Service.ClientName" class="form-select">
+					@foreach ((var client, int count) in Model.Clients.Select((v, i) => (v, i)))
+					{
+						<option value="@Model.Clients[count]">@Model.Clients[count]</option>
+					}
+					<span asp-validation-for="Service.ClientId" class="text-danger"></span>
+				</select>
+				@* ComboBox *****************************************@
 			</div>
-			<div class="form-group">
+			@* <div class="form-group">
 				<label asp-for="Service.ClientName" class="control-label"></label>
 				<input asp-for="Service.ClientName" class="form-control" />
 				<span asp-validation-for="Service.ClientName" class="text-danger"></span> 
-			</div> @* Combo box para elegir empleado *@
+			</div> *@ @* Combo box para elegir empleado *@
 			<div class="form-group">
 				<label asp-for="Service.Observation" class="control-label"></label>
 				<input asp-for="Service.Observation" class="form-control" />

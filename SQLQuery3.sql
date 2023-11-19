@@ -1,0 +1,1 @@
+﻿select CONCAT(Id, '-', Name,'.') From Employees 

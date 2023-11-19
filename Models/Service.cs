@@ -19,8 +19,9 @@ namespace RostrosFelices.Models
 
         public string Observation { get; set; }
 
-        public Employee Employee { get; set; }
-
-        public Client Client { get; set; }
+        //public ICollection<Employee>? Employees { get; set; } = default;
+        //public ICollection<Client>? Client { get; set; } = default;
+		//public Employee Employee { get; set; }
+  //      public Client Client { get; set; }
     }
 }

@@ -13,6 +13,9 @@
 
 	<thead>
 		<tr>
+			th>
+			@Html.DisplayNameFor(model => model.Services[0].Id)
+			</th>
 			<th>
 				@Html.DisplayNameFor(model => model.Services[0].Name)
 			</th>
@@ -34,12 +37,7 @@
 			<th>
 				@Html.DisplayNameFor(model => model.Services[0].Observation)
 			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Services[0].Employee)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Services[0].Client)
-			</th>
+			
 
 			<th>Actions</th>
 		</tr>
@@ -50,16 +48,16 @@
 			<tr>
 				<td>
 					@Html.DisplayFor(modelItem => item.Name)
-				</td>
+				</td> 
 				<td>
 					@Html.DisplayFor(modelItem => item.Fecha)
 				</td>
 				<td>
 					@Html.DisplayFor(modelItem => item.EmployeeId)
 				</td>
-				<td>
+				 <td>
 					@Html.DisplayFor(modelItem => item.EmployeeName)
-				</td>
+				</td> 
 				<td>
 					@Html.DisplayFor(modelItem => item.ClientId)
 				</td>
@@ -69,12 +67,12 @@
 				<td>
 					@Html.DisplayFor(modelItem => item.Observation)
 				</td>
-				<td>
+				@* <td>
 					@Html.DisplayFor(modelItem => item.Employee)
 				</td>
 				<td>
 					@Html.DisplayFor(modelItem => item.Client)
-				</td>
+				</td> *@
 
 				<td>
 
