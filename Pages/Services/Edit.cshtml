@@ -1,0 +1,63 @@
+﻿@page
+@model RostrosFelices.Pages.Services.EditModel
+@{
+	ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Service</h4>
+<hr />
+<div class="row">
+	<div class="col-md-4">
+		<form method="post">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<input type="hidden" asp-for="Service.Id" />
+			<div class="form-group">
+				<label asp-for="Service.Name" class="control-label"></label>
+				<input asp-for="Service.Name" class="form-control" />
+				<span asp-validation-for="Service.Name" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Service.Fecha" class="control-label"></label>
+				<input asp-for="Service.Fecha" class="form-control" />
+				<span asp-validation-for="Service.Fecha" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Service.EmployeeId" class="control-label"></label>
+				<input asp-for="Service.EmployeeId" class="form-control" />
+				<span asp-validation-for="Service.EmployeeId" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Service.EmployeeName" class="control-label"></label>
+				<input asp-for="Service.EmployeeName" class="form-control" />
+				<span asp-validation-for="Service.EmployeeName" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Service.ClientId" class="control-label"></label>
+				<input asp-for="Service.ClientId" class="form-control" />
+				<span asp-validation-for="Service.ClientId" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Service.ClientName" class="control-label"></label>
+				<input asp-for="Service.ClientName" class="form-control" />
+				<span asp-validation-for="Service.ClientName" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Service.Observation" class="control-label"></label>
+				<input asp-for="Service.Observation" class="form-control" />
+				<span asp-validation-for="Service.Observation" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="save" class="btn btn-success" />
+				<a asp-page="./Index" class="btn btn-primary">Back to List </a>
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}
