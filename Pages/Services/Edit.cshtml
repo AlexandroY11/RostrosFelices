@@ -33,9 +33,9 @@
 				@* <input asp-for="Service.EmployeeName" class="form-control" /> *@
 
 				<select asp-for="Service.EmployeeName" class="form-select">
-					@foreach ((var employee, int count) in Model.Employees.Select((v, i) => (v, i)))
+					@foreach (var employee in Model.Employees)
 					{
-						<option value="@Model.Employees[count]">@Model.Employees[count]</option>
+				<option value="@employee">@employee</option>
 					}
 
 				</select>
@@ -51,9 +51,9 @@
 				@* <input asp-for="Service.ClientName" class="form-control" /> *@
 
 				<select asp-for="Service.ClientName" class="form-select">
-					@foreach ((var client, int count) in Model.Clients.Select((v, i) => (v, i)))
+					@foreach (var client in Model.Clients)
 					{
-						<option value="@Model.Clients[count]">@Model.Clients[count]</option>
+				<option value="@client">@client</option>
 					}
 					<span asp-validation-for="Service.ClientId" class="text-danger"></span>
 				</select>
