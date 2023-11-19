@@ -9,6 +9,8 @@ namespace RostrosFelices.Pages.Services
     public class EditModel : PageModel
     {
 		private readonly RostrosFelicesContext _context;
+		public List<string> Employees = new List<string>();
+		public List<string> Clients = new List<string>();
 
 		public EditModel(RostrosFelicesContext context)
 		{
